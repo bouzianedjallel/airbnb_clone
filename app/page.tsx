@@ -2,11 +2,13 @@ import { Banner } from "./components/Banner";
 import Explore from "./components/ExploreSection/Explore";
 import Footer from "./components/Footer";
 import GreatestOutdoors from "./components/GreatestOutdoors";
+import { Header } from "./components/header/Header";
 import Live from "./components/LiveSection/Live";
 
 export default function Home() {
   return (
    <>
+      <Header/> 
       <main>
       <Banner/>
       <Explore/>

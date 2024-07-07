@@ -6,7 +6,7 @@ import { DateRangePicker, RangeKeyDict } from 'react-date-range'
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css'; 
 
-export const SearchBar = () => {
+export const SearchBar = ({placeholder} : {placeholder? : string}) => {
   const [input , setInput] = useState("");
   const [startDate, setStartDate] = useState( new Date());
   const [endDate, setEndDate] = useState( new Date());
@@ -25,7 +25,7 @@ export const SearchBar = () => {
       <div className='flex items-center md:border-2 rounded-full py-2 md:shadow-sm'>
         <input
           type='text'
-          placeholder= 'Start your search'
+          placeholder = {placeholder || 'Start your search'}
           className='text-sm text-gray-600 placeholder-gray-400 flex-grow pl-5 bg-transparent outline-none'
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -60,13 +60,14 @@ export const SearchBar = () => {
               Cancel
             </button>
             <Link
-              href={
-                {pathname:'/search', search:`?location=${input}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&numOfGuests=${numOfGuests}`}
-              }
+              href={{
+                pathname:'/search',
+                search: `?location=${input}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&numOfGuests=${numOfGuests}`,
+              }}
               onClick={() => setInput('')}
               className='flex-grow text-red-400'
             >
-              Search
+              Search 
             </Link>
           </div>
         </div>}

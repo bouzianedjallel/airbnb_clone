@@ -17,3 +17,13 @@ export const getExplore = async () => {
      console.log(error);
    }
  };
+ export const getSearchResult = async () => {
+  try {
+    const res = await fetch(`https://www.jsonkeeper.com/b/5NPS`);
+    const searchResultDate = await res.json();
+    return searchResultDate;
+    
+  } catch (error) {
+    console.log(error);
+  }
+};
